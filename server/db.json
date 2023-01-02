@@ -1,0 +1,109 @@
+{
+  "users": [
+    {
+      "email": "olegyurin7@gmail.com",
+      "password": "$2a$10$4nr6MQ6eRhnxm00Pw1e4i.jxYEUFZ1R7.jJhI1iG5.hrZ4G5OxYWq",
+      "username": "oleg777",
+      "id": 1
+    },
+    {
+      "email": "admin123@gmail.com",
+      "password": "$2a$10$L.P2P8qtb07NqLGZkyckFuWMQrl3Q5NfjzHIeCPqVannLOJuZJ2Ia",
+      "username": "oleg777",
+      "id": 2
+    },
+    {
+      "email": "admin1@yandex.ru",
+      "password": "$2a$10$rXy3dRo3myeHHn8EZ69CaObfggUF65Oxhb1tqdEQKHZTWiuki1sSS",
+      "username": "olegjan",
+      "id": 3
+    },
+    {
+      "email": "igorLovaev@yandex.ru",
+      "password": "$2a$10$4RnBK7l4RgqElM64XbsK6OhXgKfaGHhmEHWh7jaU1WOmXJv/R7Siq",
+      "username": "igor123f",
+      "id": 4
+    },
+    {
+      "email": "inna@yandex.ru",
+      "password": "$2a$10$52udSaVVbYakjFG.DQ9gKuUHQlRDauly2HYuBNGJAVfOVAehj0sBO",
+      "username": "inna1234",
+      "id": 5
+    },
+    {
+      "email": "roman@yandex.ru",
+      "password": "$2a$10$R/DcsyoN6pzc2A6mKg2o1ugCipl9HKjjJvQYO7xjKSV8RhdFsFBLy",
+      "username": "romik",
+      "id": 6
+    }
+  ],
+  "counters": [
+    {
+      "minutes": 1,
+      "workouts": 0,
+      "kgs": 0
+    }
+  ],
+  "exercises": [
+    {
+      "exercise": "плечи",
+      "name": "push up",
+      "times": "3",
+      "id": 1
+    },
+    {
+      "exercise": "удар",
+      "name": "отжимания",
+      "times": "5",
+      "id": 2
+    },
+    {
+      "exercise": "удар",
+      "name": "бокс",
+      "times": "4",
+      "id": 3
+    },
+    {
+      "exercise": "ноги",
+      "name": "бокс",
+      "times": "6",
+      "id": 4
+    },
+    {
+      "exercise": "ноги",
+      "name": "приседания",
+      "times": "4",
+      "id": 5
+    }
+  ],
+  "workouts": [
+    {
+      "name": "тренировка ",
+      "exerciseName": [
+        {
+          "value": 1,
+          "label": "push up"
+        },
+        {
+          "value": 3,
+          "label": "бокс"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "тренировка ",
+      "exerciseName": [
+        {
+          "value": 1,
+          "label": "push up"
+        },
+        {
+          "value": 3,
+          "label": "бокс"
+        }
+      ],
+      "id": 2
+    }
+  ]
+}

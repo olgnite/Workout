@@ -1,0 +1,63 @@
+@import "../../scss/variables.scss";
+
+.wrapperRoot {
+	position: relative;
+	margin: auto;
+	top: 240px;
+
+	.input {
+		background-color: $purple;
+		border: 1px solid transparent;
+		color: $white;
+		font-size: 16px;
+		padding: 14px;
+		border-radius: 10px;
+		margin-bottom: 0.7rem;
+		outline: none;
+		width: 100%;
+
+		&:focus {
+			border-color: rgba($accent, 3);
+		}
+
+		&::placeholder {
+			color: #946e86;
+		}
+	}
+
+	$accent-04: rgba($accent, 0.4);
+
+	.button {
+		border: none;
+		outline: none;
+		font-size: 18px;
+		border-radius: 10px;
+		padding: 13px 48px;
+		text-decoration: none;
+		margin-bottom: 1.5px;
+		transition: background-color 0.15s ease;
+		background-color: $accent-04;
+		cursor: pointer;
+		color: #fff;
+		@media (max-width: $mobile) {
+			font-size: 16px;
+			padding: 12px 38px;
+		}
+
+		&:hover {
+			background-color: rgba($accent, 0.7);
+		}
+
+		&.main {
+			background-color: rgba(255, 255, 255, 0.5);
+
+			&:hover {
+				background-color: $accent-04;
+			}
+		}
+	}
+
+	.wrapper {
+		text-align: center;
+	}
+}
