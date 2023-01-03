@@ -1,6 +1,7 @@
 import { FC, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { regularEmail } from "../../components/constData";
 import Error from "../../components/Error/Error";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { register as registerUser } from "../../store/actionCreators";
@@ -31,7 +32,7 @@ const RegisterPage: FC = () => {
 							{
 								required: "Email обязательное поле",
 								pattern: {
-									value: /^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-0-9A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/u,
+									value: regularEmail,
 									message: 'Введите корректный email'
 								}
 							})}

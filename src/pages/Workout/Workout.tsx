@@ -1,5 +1,5 @@
-import { FC, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { FC, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import styles from "./Workout.module.scss";
 import stylesLayout from "../../components/Layout/Layout.module.scss";
@@ -12,7 +12,7 @@ const Workout: FC = () => {
 	const dispatch = useAppDispatch();
 	const {isAuth, accessToken, username} = useAppSelector(state => state.auth);
 	const {minutes, workouts, kgs} = useAppSelector(state => state.counter);
-	const exercise = useAppSelector(state => state.exercise.exercise);
+	const {exercise, isSuccess} = useAppSelector(state => state.exercise);
 
 	useEffect(() => {
 		dispatch(fetchCountersStatistic(accessToken));
@@ -31,6 +31,15 @@ const Workout: FC = () => {
                     </div>
 					}
 				</div>
+			</div>
+			<div className="wrapper-inner-page" style={{paddingLeft: 0, paddingRight: 0}}>
+				{!isSuccess ? (<div className={styles.wrapper}>
+					<div style={{fontSize: '18px'}}>
+						<Link to='/'>
+							<span>Упражнение - {exercise.name}</span>
+						</Link>
+					</div>
+				</div>) : (<p style={{fontSize: '20px'}}>Loading exercise...</p>)}
 			</div>
 		</>)
 };

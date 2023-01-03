@@ -1,40 +1,10 @@
 {
   "users": [
     {
-      "email": "olegyurin7@gmail.com",
-      "password": "$2a$10$4nr6MQ6eRhnxm00Pw1e4i.jxYEUFZ1R7.jJhI1iG5.hrZ4G5OxYWq",
-      "username": "oleg777",
-      "id": 1
-    },
-    {
-      "email": "admin123@gmail.com",
-      "password": "$2a$10$L.P2P8qtb07NqLGZkyckFuWMQrl3Q5NfjzHIeCPqVannLOJuZJ2Ia",
-      "username": "oleg777",
-      "id": 2
-    },
-    {
       "email": "admin1@yandex.ru",
       "password": "$2a$10$rXy3dRo3myeHHn8EZ69CaObfggUF65Oxhb1tqdEQKHZTWiuki1sSS",
       "username": "olegjan",
-      "id": 3
-    },
-    {
-      "email": "igorLovaev@yandex.ru",
-      "password": "$2a$10$4RnBK7l4RgqElM64XbsK6OhXgKfaGHhmEHWh7jaU1WOmXJv/R7Siq",
-      "username": "igor123f",
-      "id": 4
-    },
-    {
-      "email": "inna@yandex.ru",
-      "password": "$2a$10$52udSaVVbYakjFG.DQ9gKuUHQlRDauly2HYuBNGJAVfOVAehj0sBO",
-      "username": "inna1234",
-      "id": 5
-    },
-    {
-      "email": "roman@yandex.ru",
-      "password": "$2a$10$R/DcsyoN6pzc2A6mKg2o1ugCipl9HKjjJvQYO7xjKSV8RhdFsFBLy",
-      "username": "romik",
-      "id": 6
+      "id": 1
     }
   ],
   "counters": [
@@ -104,6 +74,16 @@
         }
       ],
       "id": 2
+    },
+    {
+      "name": "Тренировка на ноги",
+      "exerciseNames": [
+        {
+          "value": 5,
+          "label": "приседания"
+        }
+      ],
+      "id": 3
     }
   ]
 }

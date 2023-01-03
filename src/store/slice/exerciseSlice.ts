@@ -29,6 +29,7 @@ export const exerciseSlice = createSlice({
 		},
 		exerciseFetchingById(state, action: PayloadAction<IExercise>) {
 			state.exercise = action.payload;
+			state.isSuccess = false;
 		},
 		exerciseAddingSuccess(state, action: PayloadAction<IExercise>) {
 			state.exercises.push(action.payload);

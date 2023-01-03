@@ -10,6 +10,7 @@ import { exerciseSlice } from "../../store/slice/exerciseSlice";
 import cn from 'classnames';
 import Error from "../../components/Error/Error";
 import { addExercise } from "../../store/actionCreators";
+import { regularTimes } from "../../components/constData";
 
 const data = ['грудь', 'плечи', 'бицепс', 'ноги', 'удар']
 
@@ -45,7 +46,7 @@ const NewExercise: FC = () => {
 					{...register('times', {
 						required: 'Times обязательное поле',
 						pattern: {
-							value: /^[0-9]+(\.?[0-9]+)?$/,
+							value: regularTimes,
 							message: 'Пожалуйста введите число'
 						}
 					})}
