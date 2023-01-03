@@ -1,9 +1,9 @@
 import { MultiValue, SingleValue } from "react-select";
 
 export interface IUser {
-    email?: string;
-    username?: string;
-    password?: string;
+	email?: string;
+	username?: string;
+	password?: string;
 }
 
 export interface IWorkout {
@@ -12,16 +12,16 @@ export interface IWorkout {
 }
 
 export interface ICounter {
-    minutes: number;
-    workouts: number;
-    kgs: number;
+	minutes: number;
+	workouts: number;
+	kgs: number;
 	type?: string;
 }
 
 export interface IExercise {
 	id?: number;
-    name: string;
-    times: string;
+	name: string;
+	times: string;
 	exercise?: string;
 }
 

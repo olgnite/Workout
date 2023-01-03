@@ -1,23 +1,20 @@
 import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Link, useNavigate } from "react-router-dom";
-import Select, { ActionMeta, MultiValue, OnChangeValue, SingleValue } from 'react-select';
+import { Link } from "react-router-dom";
+import Select, { MultiValue, OnChangeValue, SingleValue } from 'react-select';
 import Layout from '../../components/Layout/Layout';
 import { optionColor } from '../../components/optionColor';
-import bgImage from '../../images/new-workout-bg.jpg';
-import { IExercise, IOption, IWorkout } from '../../types/interfaces';
-import styles from './NewWorkout.module.scss';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import bgImage from '../../images/new-workout-bg.jpg';
 import { addWorkout, fetchExercises } from "../../store/actionCreators";
-import { workoutSlice } from "../../store/slice/workoutSlice";
+import { IOption, IWorkout } from '../../types/interfaces';
+import styles from './NewWorkout.module.scss';
 
 
 const NewWorkout: FC = () => {
-	const navigate = useNavigate();
-	const {register, handleSubmit, reset} = useForm<IWorkout>();
-	const [data, setData] = useState<IExercise[]>([]);
+	const { register, handleSubmit, reset } = useForm<IWorkout>();
 	const exercises = useAppSelector(state => state.exercise.exercises);
-	const {accessToken, isAuth} = useAppSelector(state => state.auth);
+	const { accessToken, isAuth } = useAppSelector(state => state.auth);
 	const dispatch = useAppDispatch();
 	const [exercise, setExercise] = useState<SingleValue<IOption> | MultiValue<IOption>>([]);
 
@@ -39,7 +36,7 @@ const NewWorkout: FC = () => {
 
 	return (
 		<>
-			<Layout bgImage={bgImage} heading='Create new workout'/>
+			<Layout bgImage={bgImage} heading='Create new workout' />
 			<div className='wrapper-inner-page'>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<input

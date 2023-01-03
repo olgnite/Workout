@@ -15,9 +15,7 @@ const Home: FC = () => {
 	const {minutes, workouts, kgs} = useAppSelector(state => state.counter);
 
 	useEffect(() => {
-		if (isAuth) {
-			dispatch(fetchCountersStatistic(accessToken))
-		}
+		dispatch(fetchCountersStatistic(accessToken))
 	}, [])
 
 	return (<Layout bgImage={bgImage}>
@@ -25,7 +23,7 @@ const Home: FC = () => {
 			text='New'
 			type='main'
 			callback={() => navigate('/new-workout')}/>
-		<h1 className={styles.heading}>EXERCISES FOR THE SHOULDERS</h1>
+		<h1 className={styles.heading}>Упражнения для плеч</h1>
 
 		{isAuth && <Counters minutes={minutes} workouts={workouts} kgs={kgs}/>}
 	</Layout>);

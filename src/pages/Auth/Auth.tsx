@@ -17,7 +17,6 @@ const Auth: FC = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const isAuth = useAppSelector(state => state.auth.isAuth);
 
-
 	const onSubmit: SubmitHandler<IUser> = (data: IUser) => {
 		dispatch(login(data));
 		navigate('/');

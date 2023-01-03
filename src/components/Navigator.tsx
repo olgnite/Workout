@@ -8,6 +8,7 @@ import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import NewExercise from "../pages/NewExercise/NewExercise";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import Workout from "../pages/Workout/Workout";
+import ListWorkouts from "../pages/ListWorkouts/ListWorkouts";
 
 const Navigator = () => {
 	return (
@@ -19,7 +20,8 @@ const Navigator = () => {
 				<Route path='/register' element={<RegisterPage/>}/>
 				<Route path='/new-exercise' element={<PrivateRoute><NewExercise/></PrivateRoute>}/>
 				<Route path='/profile' element={<PrivateRoute><ProfilePage/></PrivateRoute>}/>
-				<Route path='/workouts/:id' element={<PrivateRoute><Workout/></PrivateRoute>}/>
+				<Route path='/workouts/exercises/:id' element={<PrivateRoute><Workout/></PrivateRoute>}/>
+				<Route path='/workouts' element={<PrivateRoute><ListWorkouts/></PrivateRoute>}/>
 			</Routes>
 		</BrowserRouter>
 	);

@@ -9,8 +9,8 @@ import workoutReducer from './slice/workoutSlice';
 const rootReducer = combineReducers({
     auth: authReducer,
     counter: counterReducer,
-	exercise: exerciseReducer,
-	workout: workoutReducer
+    exercise: exerciseReducer,
+    workout: workoutReducer
 })
 
 export const storeConfig = configureStore({

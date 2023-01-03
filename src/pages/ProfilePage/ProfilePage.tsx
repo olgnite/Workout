@@ -18,9 +18,7 @@ const ProfilePage: FC = () => {
 	const {minutes, workouts, kgs} = useAppSelector(state => state.counter);
 
 	useEffect(() => {
-		if (isAuth) {
-			dispatch(fetchCountersStatistic(accessToken))
-		}
+		dispatch(fetchCountersStatistic(accessToken))
 	}, [dispatch, isAuth, accessToken])
 
 	return (

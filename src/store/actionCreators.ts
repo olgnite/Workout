@@ -62,9 +62,21 @@ export const addExercise = (token: string, data: IExercise) => {
 export const fetchExercises = () => {
 	return async (dispatch: AppDispatch) => {
 		try {
-			dispatch(exerciseSlice.actions.exerciseLoadingSuccess());
+			dispatch(exerciseSlice.actions.exercisesLoadingSuccess());
 			const response = await axios.get<IExercise[]>('exercises')
 			dispatch(exerciseSlice.actions.exercisesFetchingSuccess(response.data));
+		} catch (error) {
+			dispatch(exerciseSlice.actions.exercisesFetchingError(error as Error));
+		}
+	}
+}
+
+export const fetchExerciseById = (id: string = '') => {
+	return async (dispatch: AppDispatch) => {
+		try {
+			dispatch(exerciseSlice.actions.exercisesLoadingSuccess());
+			const response = await axios.get<IExercise>(`exercises/${id}`);
+			dispatch(exerciseSlice.actions.exerciseFetchingById(response.data));
 		} catch (error) {
 			dispatch(exerciseSlice.actions.exercisesFetchingError(error as Error));
 		}
@@ -79,7 +91,6 @@ export const addWorkout = (token: string, data: IWorkout) => {
 					Authorization: `Bearer ${token}`
 				}
 			})
-			console.log(response.data);
 			dispatch(workoutSlice.actions.workoutAddingSuccess(response.data));
 		} catch (error) {
 			console.log((error as Error).message);
