@@ -1,5 +1,3 @@
-import { MultiValue, SingleValue } from "react-select";
-
 export interface IUser {
 	email?: string;
 	username?: string;

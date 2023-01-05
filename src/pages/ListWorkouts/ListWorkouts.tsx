@@ -1,25 +1,24 @@
-import React, { FC, useEffect, useState } from 'react';
-import styles from './ListWorkouts.module.scss';
-import { Link, useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { fetchCountersStatistic, fetchExercises } from "../../store/actionCreators";
-import bgImage from "../../images/new-workout-bg.jpg";
+import { FC, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import bgImage from "../../images/new-workout-bg.jpg";
+import { fetchExercises } from "../../store/actionCreators";
+import styles from './ListWorkouts.module.scss';
 
 const ListWorkouts: FC = () => {
 	const dispatch = useAppDispatch();
-	const {isAuth, accessToken, username} = useAppSelector(state => state.auth);
-	const {exercises, isSuccess} = useAppSelector(state => state.exercise);
+	const { isAuth, accessToken, username } = useAppSelector(state => state.auth);
+	const { exercises, isSuccess } = useAppSelector(state => state.exercise);
 
 	useEffect(() => {
-		dispatch(fetchCountersStatistic(accessToken));
-		dispatch(fetchExercises());
+		dispatch(fetchExercises());  // энивей будем выводить название тренировок
 	}, [dispatch, isAuth, accessToken])
 
 	return (
 		<>
-			<Layout bgImage={bgImage} heading='Workouts List'/>
-			<div className="wrapper-inner-page" style={{paddingLeft: 0, paddingRight: 0}}>
+			<Layout bgImage={bgImage} heading='Workouts List' />
+			<div className="wrapper-inner-page" style={{ paddingLeft: 0, paddingRight: 0 }}>
 				{!isSuccess ? (<div className={styles.wrapper}>
 					{exercises.map((exercise, i) => {
 						return (
@@ -29,7 +28,7 @@ const ListWorkouts: FC = () => {
 								</Link>
 							</div>)
 					})}
-				</div>) : (<p style={{fontSize: '20px'}}>Loading exercises...</p>)}
+				</div>) : (<p style={{ fontSize: '20px' }}>Loading exercises...</p>)}
 			</div>
 		</>)
 };

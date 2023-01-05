@@ -1,6 +1,5 @@
-import { counterSlice } from './slice/counterSlice';
 import axios from '../axios';
-import { ICounter, IExercise, IOption, IUser, IWorkout } from '../types/interfaces';
+import { IExercise, IUser, IWorkout } from '../types/interfaces';
 import { AppDispatch } from './index';
 import { authSlice, IAuthStatePayload } from './slice/authSlice';
 import { exerciseSlice } from "./slice/exerciseSlice";
@@ -25,21 +24,6 @@ export const register = (data: IUser) => {
 			dispatch(authSlice.actions.loginSuccess(response.data));
 		} catch (error) {
 			console.log((error as Error));
-		}
-	}
-}
-
-export const fetchCountersStatistic = (token: string) => {
-	return async (dispatch: AppDispatch) => {
-		try {
-			const response = await axios.get<ICounter[]>('counters', {
-				headers: {
-					Authorization: `Bearer ${token}`
-				}
-			});
-			dispatch(counterSlice.actions.countersAddingSuccess(response.data[0]));
-		} catch (error) {
-			dispatch(counterSlice.actions.countersAddingError(error as Error));
 		}
 	}
 }
@@ -77,6 +61,7 @@ export const fetchExerciseById = (id: string = '') => {
 			dispatch(exerciseSlice.actions.exercisesLoadingSuccess());
 			const response = await axios.get<IExercise>(`exercises/${id}`);
 			dispatch(exerciseSlice.actions.exerciseFetchingById(response.data));
+			console.log(response.data);
 		} catch (error) {
 			dispatch(exerciseSlice.actions.exercisesFetchingError(error as Error));
 		}
@@ -91,6 +76,28 @@ export const addWorkout = (token: string, data: IWorkout) => {
 					Authorization: `Bearer ${token}`
 				}
 			})
+			dispatch(workoutSlice.actions.workoutAddingSuccess(response.data));
+		} catch (error) {
+			console.log((error as Error).message);
+		}
+	}
+}
+
+export const fetchWorkouts = () => {
+	return async (dispatch: AppDispatch) => {
+		try {
+			const response = await axios.get<IWorkout[]>('workouts');
+			dispatch(workoutSlice.actions.workoutsFetchingSuccess(response.data));
+		} catch (error) {
+			console.log((error as Error).message);
+		}
+	}
+}
+
+export const fetchWorkoutById = (id: string = '') => {
+	return async (dispatch: AppDispatch) => {
+		try {
+			const response = await axios.get<IWorkout>(`workouts/${id}`);
 			dispatch(workoutSlice.actions.workoutAddingSuccess(response.data));
 		} catch (error) {
 			console.log((error as Error).message);

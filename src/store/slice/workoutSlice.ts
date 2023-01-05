@@ -1,16 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IExercise, IOption } from "../../types/interfaces";
-import { MultiValue, SingleValue } from "react-select";
+import { IExercise, IOption, IWorkout } from "../../types/interfaces";
 
 
 export interface IWorkoutState {
 	name: string;
 	exerciseNames: IOption[];
+	workouts?: IWorkout[];
 }
 
 const initialState: IWorkoutState = {
 	name: '',
-	exerciseNames: []
+	exerciseNames: [],
+	workouts: []
 }
 
 export const workoutSlice = createSlice({
@@ -20,6 +21,9 @@ export const workoutSlice = createSlice({
 		workoutAddingSuccess(state, action: PayloadAction<IWorkoutState>) {
 			state.name = action.payload.name;
 			state.exerciseNames = action.payload.exerciseNames;
+		},
+		workoutsFetchingSuccess(state, action: PayloadAction<IWorkoutState[]>) {
+			state.workouts = action.payload;
 		}
 	}
 })

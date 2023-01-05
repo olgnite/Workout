@@ -10,24 +10,23 @@ import { exerciseSlice } from "../../store/slice/exerciseSlice";
 import cn from 'classnames';
 import Error from "../../components/Error/Error";
 import { addExercise } from "../../store/actionCreators";
-import { regularTimes } from "../../components/constData";
+import { exercisesData, regularTimes } from "../../components/constData";
 
-const data = ['грудь', 'плечи', 'бицепс', 'ноги', 'удар']
 
 const NewExercise: FC = () => {
 	const navigate = useNavigate();
-	const {register, handleSubmit, reset, formState: {errors}} = useForm<IExercise>();
+	const { register, handleSubmit, reset, formState: { errors } } = useForm<IExercise>();
 	const [exerciseName, setExerciseName] = useState('');
 	const accessToken = useAppSelector(state => state.auth.accessToken);
 	const dispatch = useAppDispatch();
 
 	const onSubmit: SubmitHandler<IExercise> = (data: IExercise) => {
-		dispatch(addExercise(accessToken, {exercise: exerciseName, ...data}))
+		dispatch(addExercise(accessToken, { exercise: exerciseName, ...data }))
 		navigate('/new-workout');
 	}
 
 	return (<>
-		<Layout bgImage={bgImage} heading='Add new exercise'/>
+		<Layout bgImage={bgImage} heading='Add new exercise' />
 		<div className='wrapper-inner-page'>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
@@ -54,8 +53,8 @@ const NewExercise: FC = () => {
 				<Error error={errors.times} errorMessage={errors.times?.message}></Error>
 				<div
 					className={styles.exerciseWrapper}
-					style={{marginBottom: "25px"}}>
-					{data.map(name => (
+					style={{ marginBottom: "25px" }}>
+					{exercisesData.map(name => (
 						<span
 							className={cn({
 								[styles.active]: exerciseName === name,

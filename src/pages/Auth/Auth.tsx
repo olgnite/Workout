@@ -1,6 +1,7 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { regularEmail } from "../../components/constData";
 import Error from "../../components/Error/Error";
 import Layout from "../../components/Layout/Layout";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
@@ -11,7 +12,7 @@ import styles from './Auth.module.scss';
 
 
 const Auth: FC = () => {
-	const {register, handleSubmit, reset, formState: {errors}} = useForm<IUser>();
+	const { register, handleSubmit, reset, formState: { errors } } = useForm<IUser>();
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 	const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +26,7 @@ const Auth: FC = () => {
 
 	return (
 		<>
-			<Layout bgImage={bgImage} heading="Auth || Register"/>
+			<Layout bgImage={bgImage} heading="Auth || Register" />
 			<div className="wrapper-inner-page">
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<input
@@ -37,12 +38,12 @@ const Auth: FC = () => {
 							{
 								required: "Email обязательное поле",
 								pattern: {
-									value: /^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-0-9A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/u,
+									value: regularEmail,
 									message: 'Введите корректный email'
 								}
 							})}
 					/>
-					<Error error={errors?.email} errorMessage={errors.email?.message}/>
+					<Error error={errors?.email} errorMessage={errors.email?.message} />
 					<input
 						className={styles.input}
 						type="password"
@@ -56,7 +57,7 @@ const Auth: FC = () => {
 								}
 							})}
 					/>
-					<Error error={errors?.password} errorMessage={errors.password?.message}/>
+					<Error error={errors?.password} errorMessage={errors.password?.message} />
 					<div className={styles.wrapperButtons}>
 						<div className={styles.wrapper}>
 							<button

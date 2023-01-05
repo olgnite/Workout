@@ -1,89 +1,46 @@
 {
-  "users": [
-    {
-      "email": "admin1@yandex.ru",
-      "password": "$2a$10$rXy3dRo3myeHHn8EZ69CaObfggUF65Oxhb1tqdEQKHZTWiuki1sSS",
-      "username": "olegjan",
-      "id": 1
-    }
-  ],
-  "counters": [
-    {
-      "minutes": 1,
-      "workouts": 0,
-      "kgs": 0
-    }
-  ],
-  "exercises": [
-    {
-      "exercise": "плечи",
-      "name": "push up",
-      "times": "3",
-      "id": 1
-    },
-    {
-      "exercise": "удар",
-      "name": "отжимания",
-      "times": "5",
-      "id": 2
-    },
-    {
-      "exercise": "удар",
-      "name": "бокс",
-      "times": "4",
-      "id": 3
-    },
-    {
-      "exercise": "ноги",
-      "name": "бокс",
-      "times": "6",
-      "id": 4
-    },
-    {
-      "exercise": "ноги",
-      "name": "приседания",
-      "times": "4",
-      "id": 5
-    }
-  ],
-  "workouts": [
-    {
-      "name": "тренировка ",
-      "exerciseName": [
-        {
-          "value": 1,
-          "label": "push up"
-        },
-        {
-          "value": 3,
-          "label": "бокс"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "name": "тренировка ",
-      "exerciseName": [
-        {
-          "value": 1,
-          "label": "push up"
-        },
-        {
-          "value": 3,
-          "label": "бокс"
-        }
-      ],
-      "id": 2
-    },
-    {
-      "name": "Тренировка на ноги",
-      "exerciseNames": [
-        {
-          "value": 5,
-          "label": "приседания"
-        }
-      ],
-      "id": 3
-    }
-  ]
+	"users": [
+		{
+			"email": "admin1@yandex.ru",
+			"password": "$2a$10$rXy3dRo3myeHHn8EZ69CaObfggUF65Oxhb1tqdEQKHZTWiuki1sSS",
+			"username": "olegjan",
+			"id": 1
+		}
+	],
+	"exercises": [
+		{
+			"exercise": "грудь",
+			"name": "отжимания",
+			"times": "4",
+			"id": 1
+		},
+		{
+			"exercise": "плечи",
+			"name": "плечи",
+			"times": "6",
+			"id": 2
+		}
+	],
+	"workouts": [
+		{
+			"name": "тренировка на грудь",
+			"exerciseNames": [
+				{
+					"value": 1,
+					"label": "отжимания"
+				}
+			],
+			"id": 1
+		},
+		{
+			"name": "тренировка на плечи",
+			"exerciseNames": [
+				{
+					"value": 2,
+					"label": "плечи"
+				}
+			],
+			"id": 2
+		}
+	]
 }
