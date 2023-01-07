@@ -12,7 +12,6 @@ interface ILayoutProps {
     heading?: string;
 }
 
-
 const Layout: FC<ILayoutProps> = ({ children, bgImage, heading = '' }) => {
     const navigate = useNavigate();
 

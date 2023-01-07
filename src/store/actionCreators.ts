@@ -61,7 +61,6 @@ export const fetchExerciseById = (id: string = '') => {
 			dispatch(exerciseSlice.actions.exercisesLoadingSuccess());
 			const response = await axios.get<IExercise>(`exercises/${id}`);
 			dispatch(exerciseSlice.actions.exerciseFetchingById(response.data));
-			console.log(response.data);
 		} catch (error) {
 			dispatch(exerciseSlice.actions.exercisesFetchingError(error as Error));
 		}
@@ -86,7 +85,8 @@ export const addWorkout = (token: string, data: IWorkout) => {
 export const fetchWorkouts = () => {
 	return async (dispatch: AppDispatch) => {
 		try {
-			const response = await axios.get<IWorkout[]>('workouts');
+			dispatch(workoutSlice.actions.workoutsLoadingSuccess());
+			const response = await axios.get<IWorkoutState[]>('workouts');
 			dispatch(workoutSlice.actions.workoutsFetchingSuccess(response.data));
 		} catch (error) {
 			console.log((error as Error).message);
@@ -97,7 +97,7 @@ export const fetchWorkouts = () => {
 export const fetchWorkoutById = (id: string = '') => {
 	return async (dispatch: AppDispatch) => {
 		try {
-			const response = await axios.get<IWorkout>(`workouts/${id}`);
+			const response = await axios.get<IWorkoutState>(`workouts/${id}`);
 			dispatch(workoutSlice.actions.workoutAddingSuccess(response.data));
 		} catch (error) {
 			console.log((error as Error).message);

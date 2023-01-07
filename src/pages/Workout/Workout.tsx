@@ -11,8 +11,8 @@ const Workout: FC = () => {
 	const params = useParams<'id'>();
 	const dispatch = useAppDispatch();
 	const { isAuth, accessToken, username } = useAppSelector(state => state.auth);
-	const { exercise, isSuccess } = useAppSelector(state => state.exercise);
-	const { name, exerciseNames } = useAppSelector(state => state.workout);
+	const { name, exerciseNames, isSuccess } = useAppSelector(state => state.workout);
+	const exercise = useAppSelector(state => state.exercise.exercise);
 
 	useEffect(() => {
 		dispatch(fetchExerciseById(params.id));
@@ -26,7 +26,6 @@ const Workout: FC = () => {
 				<Header />
 				<div>
 					{isAuth && <div>
-						{/* <time className={styles.time}>{5} min</time> */}
 						<h1 className={stylesLayout.heading}>{username}</h1>
 					</div>
 					}
@@ -38,12 +37,14 @@ const Workout: FC = () => {
 						<div style={{ margin: '10px', padding: '10px' }}>
 							<span>Название тренировки - {name}</span>
 							<br />
-							<span>Упражнение - {exercise.name}</span>
+							<p>Упражнение(я) - {exerciseNames.map(exercise => (
+								<span key={'__key__' + exercise.value}>{exercise.label + ' '}</span>
+							))} </p>
 							<br />
 							<span>Подходов - {exercise.times}</span>
 						</div>
 					</div>
-				</div>) : (<p style={{ fontSize: '20px' }}>Loading exercise...</p>)}
+				</div>) : (<p style={{ fontSize: '20px' }}>Loading workout...</p>)}
 			</div>
 		</>)
 };

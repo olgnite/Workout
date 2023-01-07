@@ -1,46 +1,70 @@
 {
-	"users": [
-		{
-			"email": "admin1@yandex.ru",
-			"password": "$2a$10$rXy3dRo3myeHHn8EZ69CaObfggUF65Oxhb1tqdEQKHZTWiuki1sSS",
-			"username": "olegjan",
-			"id": 1
-		}
-	],
-	"exercises": [
-		{
-			"exercise": "грудь",
-			"name": "отжимания",
-			"times": "4",
-			"id": 1
-		},
-		{
-			"exercise": "плечи",
-			"name": "плечи",
-			"times": "6",
-			"id": 2
-		}
-	],
-	"workouts": [
-		{
-			"name": "тренировка на грудь",
-			"exerciseNames": [
-				{
-					"value": 1,
-					"label": "отжимания"
-				}
-			],
-			"id": 1
-		},
-		{
-			"name": "тренировка на плечи",
-			"exerciseNames": [
-				{
-					"value": 2,
-					"label": "плечи"
-				}
-			],
-			"id": 2
-		}
-	]
+  "users": [
+    {
+      "email": "admin1@yandex.ru",
+      "password": "$2a$10$rXy3dRo3myeHHn8EZ69CaObfggUF65Oxhb1tqdEQKHZTWiuki1sSS",
+      "username": "olegjan",
+      "id": 1
+    }
+  ],
+  "exercises": [
+    {
+      "exercise": "грудь",
+      "name": "отжимания",
+      "times": "4",
+      "id": 1
+    },
+    {
+      "exercise": "плечи",
+      "name": "плечи",
+      "times": "6",
+      "id": 2
+    },
+    {
+      "exercise": "удар",
+      "name": "бокс",
+      "times": "7",
+      "id": 3
+    }
+  ],
+  "workouts": [
+    {
+      "name": "тренировка на грудь",
+      "exerciseNames": [
+        {
+          "value": 1,
+          "label": "отжимания"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "тренировка на плечи",
+      "exerciseNames": [
+        {
+          "value": 2,
+          "label": "плечи"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Тренировка по боксу",
+      "exerciseNames": [
+        {
+          "value": 3,
+          "label": "бокс"
+        },
+        {
+          "value": 1,
+          "label": "отжимания"
+        },
+        {
+          "value": 2,
+          "label": "плечи"
+        }
+      ],
+      "id": 3
+    }
+  ]
 }

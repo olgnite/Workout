@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import bgImage from "../../images/new-workout-bg.jpg";
-import { fetchExercises } from "../../store/actionCreators";
+import { fetchWorkouts } from "../../store/actionCreators";
 import styles from './ListWorkouts.module.scss';
 
 const ListWorkouts: FC = () => {
 	const dispatch = useAppDispatch();
-	const { isAuth, accessToken, username } = useAppSelector(state => state.auth);
-	const { exercises, isSuccess } = useAppSelector(state => state.exercise);
+	const { isAuth, accessToken } = useAppSelector(state => state.auth);
+	const { workouts, isSuccess } = useAppSelector(state => state.workout);
 
 	useEffect(() => {
-		dispatch(fetchExercises());  // энивей будем выводить название тренировок
+		dispatch(fetchWorkouts());
 	}, [dispatch, isAuth, accessToken])
 
 	return (
@@ -20,15 +20,15 @@ const ListWorkouts: FC = () => {
 			<Layout bgImage={bgImage} heading='Workouts List' />
 			<div className="wrapper-inner-page" style={{ paddingLeft: 0, paddingRight: 0 }}>
 				{!isSuccess ? (<div className={styles.wrapper}>
-					{exercises.map((exercise, i) => {
+					{workouts.map((workout, i) => {
 						return (
-							<div key={'__key__' + exercise.id}>
-								<Link to={`exercises/${exercise.id}`}>
-									<span>{exercise.name}</span>
+							<div key={'__key__' + workout.name}>
+								<Link to={`workout/${i + 1}`}>
+									<span>{workout.name}</span>
 								</Link>
 							</div>)
 					})}
-				</div>) : (<p style={{ fontSize: '20px' }}>Loading exercises...</p>)}
+				</div>) : (<p style={{ fontSize: '20px' }}>Loading workouts...</p>)}
 			</div>
 		</>)
 };
