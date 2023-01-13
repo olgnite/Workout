@@ -1,7 +1,9 @@
+import { time } from 'console';
 import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Select, { MultiValue, OnChangeValue, SingleValue } from 'react-select';
+import { rangeTimeData } from '../../components/constData';
 import Error from "../../components/Error/Error";
 import Layout from '../../components/Layout/Layout';
 import { optionColor } from '../../components/optionColor';
@@ -20,13 +22,14 @@ const NewWorkout: FC = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		dispatch(fetchExercises())
+		dispatch(fetchExercises());
 	}, [dispatch, isAuth])
 
 	const onSubmit: SubmitHandler<IWorkout> = (data: IWorkout) => {
 		dispatch(addWorkout(accessToken, {
 			name: data.name,
-			exerciseNames: exercise as IOption[]
+			exerciseNames: exercise as IOption[],
+			time: data.time
 		}))
 		navigate('/workouts');
 		reset();
@@ -40,7 +43,7 @@ const NewWorkout: FC = () => {
 		<>
 			<Layout bgImage={bgImage} heading='Create new workout' />
 			<div className='wrapper-inner-page'>
-				<form onSubmit={handleSubmit(onSubmit)}>
+				<form onSubmit={handleSubmit(onSubmit)} style={{ marginBottom: '15px' }}>
 					<input
 						{...register('name', { required: 'Обязательное поле' })}
 						type="text"
@@ -48,13 +51,42 @@ const NewWorkout: FC = () => {
 						className={styles.input}
 					/>
 					<Error error={errors?.name} errorMessage={errors.name?.message} />
+					<div>
+						<select
+							className={styles.minutesSelect}
+							{...register('time.minutes')}
+						>
+							<option value={0}>Minutes</option>
+							{rangeTimeData.map((v: number, i: number) =>
+								<option
+									key={'__keyMinutes__' + i}
+									value={v}
+								>
+									{v}
+								</option>
+							)}
+						</select>
+						<select
+							className={styles.secondsSelect}
+							{...register('time.seconds')}
+						>
+							<option value={0}>Seconds</option>
+							{rangeTimeData.map((v: number, i: number) =>
+								<option
+									key={'__keySeconds__' + i}
+									value={v}
+								>
+									{v}
+								</option>
+							)}
+						</select>
+					</div>
 					<button
 						type="submit"
 						className={`${styles.button} ${styles['submit']}`}
 					>
 						Create
 					</button>
-					<Link to='/new-exercise' className='dark-link'>Add new exercise</Link>
 				</form>
 				<Select
 					classNamePrefix='select2-selection'

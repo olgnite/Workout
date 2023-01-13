@@ -67,3 +67,26 @@ $accent-04: rgba($accent, 0.4);
 .wrapper {
 	text-align: center;
 }
+
+.minutesSelect {
+	margin-right: 15px;
+	align-items: center;
+	border: 6px solid transparent;
+	border-radius: 15px;
+	border-color: $purple;
+	width: 100px;
+	height: 35px;
+	color: $accent;
+	font-family: Arial;
+}
+
+.secondsSelect {
+	align-items: center;
+	border: 6px solid transparent;
+	border-radius: 15px;
+	border-color: $purple;
+	width: 100px;
+	height: 35px;
+	color: $accent;
+	font-family: Arial;
+}

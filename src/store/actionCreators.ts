@@ -104,3 +104,13 @@ export const fetchWorkoutById = (id: string = '') => {
 		}
 	}
 }
+
+export const deleteWorkoutByTime = (workoutId: string = '') => {
+	return async (dispatch: AppDispatch) => {
+		try {
+			const response = await axios.delete(`workouts/${workoutId}`)
+		} catch (error) {
+			console.log((error as Error).message);
+		}
+	}
+}

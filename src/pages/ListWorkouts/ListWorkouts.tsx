@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
@@ -19,18 +19,24 @@ const ListWorkouts: FC = () => {
 		<>
 			<Layout bgImage={bgImage} heading='Workouts List' />
 			<div className="wrapper-inner-page" style={{ paddingLeft: 0, paddingRight: 0 }}>
-				{!isSuccess ? (<div className={styles.wrapper}>
+				{isSuccess ? (<p style={{ fontSize: '20px' }}>Loading workouts...</p>) : workouts?.length ? (<div className={styles.wrapper}>
 					{workouts.map((workout, i) => {
 						return (
 							<div key={'__key__' + workout.name}>
 								<Link to={`workout/${i + 1}`}>
 									<span>{workout.name}</span>
+									<div className='time'>
+										<span style={{ marginRight: '10px' }}>Минут - {workout.time?.minutes}</span>
+										<span>Секунд - {workout.time?.seconds}</span>
+									</div>
 								</Link>
 							</div>)
 					})}
-				</div>) : (<p style={{ fontSize: '20px' }}>Loading workouts...</p>)}
+				</div>) : (<p style={{ fontSize: '20px' }}>Тренировки не найдены</p>)}
 			</div>
 		</>)
 };
 
 export default ListWorkouts;
+
+

@@ -2,6 +2,7 @@ import { FC, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import stylesLayout from "../../components/Layout/Layout.module.scss";
+import Timer from "../../components/Timer/Timer";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import bgImage from '../../images/workout-bg.jpg';
 import { fetchExerciseById, fetchWorkoutById } from "../../store/actionCreators";
@@ -13,6 +14,9 @@ const Workout: FC = () => {
 	const { isAuth, accessToken, username } = useAppSelector(state => state.auth);
 	const { name, exerciseNames, isSuccess } = useAppSelector(state => state.workout);
 	const exercise = useAppSelector(state => state.exercise.exercise);
+	const { time } = useAppSelector(state => state.workout);
+
+	const timeMs: number = Number(time.minutes) * 60000 + Number(time.seconds) * 1000;
 
 	useEffect(() => {
 		dispatch(fetchExerciseById(params.id));
@@ -42,6 +46,7 @@ const Workout: FC = () => {
 							))} </p>
 							<br />
 							<span>Подходов - {exercise.times}</span>
+							<Timer setTime={timeMs} workoutId={params.id} />
 						</div>
 					</div>
 				</div>) : (<p style={{ fontSize: '20px' }}>Loading workout...</p>)}

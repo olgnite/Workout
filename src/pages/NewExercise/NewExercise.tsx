@@ -1,16 +1,15 @@
-import { FC, useEffect, useState } from "react";
+import cn from 'classnames';
+import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { exercisesData, regularTimes } from "../../components/constData";
+import Error from "../../components/Error/Error";
 import Layout from "../../components/Layout/Layout";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import bgImage from '../../images/new-exercise-bg.jpg';
+import { addExercise } from "../../store/actionCreators";
 import { IExercise } from "../../types/interfaces";
 import styles from './NewExercise.module.scss';
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { exerciseSlice } from "../../store/slice/exerciseSlice";
-import cn from 'classnames';
-import Error from "../../components/Error/Error";
-import { addExercise } from "../../store/actionCreators";
-import { exercisesData, regularTimes } from "../../components/constData";
 
 
 const NewExercise: FC = () => {
@@ -23,6 +22,7 @@ const NewExercise: FC = () => {
 	const onSubmit: SubmitHandler<IExercise> = (data: IExercise) => {
 		dispatch(addExercise(accessToken, { exercise: exerciseName, ...data }))
 		navigate('/new-workout');
+		reset();
 	}
 
 	return (<>
