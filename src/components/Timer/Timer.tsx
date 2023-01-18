@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { useAppDispatch } from "../../hooks/redux";
 import { useCountdown } from "../../hooks/timer";
-import { deleteWorkoutByTime } from "../../store/actionCreators";
 import { currentDate } from "../constData";
 import ShowCounter from "../ShowCounter/ShowCounter";
 

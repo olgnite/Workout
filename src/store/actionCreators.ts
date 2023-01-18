@@ -109,6 +109,7 @@ export const deleteWorkoutByTime = (workoutId: string = '') => {
 	return async (dispatch: AppDispatch) => {
 		try {
 			const response = await axios.delete(`workouts/${workoutId}`)
+			console.log(response.data);
 		} catch (error) {
 			console.log((error as Error).message);
 		}
