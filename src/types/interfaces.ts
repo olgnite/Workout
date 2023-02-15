@@ -10,13 +10,6 @@ export interface IWorkout {
 	time?: ITime;
 }
 
-export interface ICounter {
-	minutes: number;
-	workouts: number;
-	kgs: number;
-	type?: string;
-}
-
 export interface IExercise {
 	id?: number;
 	name: string;

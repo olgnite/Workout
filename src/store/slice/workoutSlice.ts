@@ -11,7 +11,7 @@ export interface IWorkoutState {
 	isCompletedTime: boolean;
 	isSuccess?: boolean;
 }
-
+// Omit | Pick | ReturnType 
 const initialState: IWorkoutState = {
 	name: '',
 	exerciseNames: [],

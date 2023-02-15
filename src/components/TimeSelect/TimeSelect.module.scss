@@ -1,0 +1,26 @@
+@import "../../scss/variables";
+
+.minutesSelect {
+	font-weight: bold !important;
+	margin-right: 15px;
+	align-items: center;
+	border: 6px solid transparent;
+	border-radius: 15px;
+	border-color: $purple;
+	width: 100px;
+	height: 35px;
+	color: $accent;
+	font-family: Arial;
+}
+
+.secondsSelect {
+	font-weight: bold !important;
+	align-items: center;
+	border: 6px solid transparent;
+	border-radius: 15px;
+	border-color: $purple;
+	width: 100px;
+	height: 35px;
+	color: $accent;
+	font-family: Arial;
+}

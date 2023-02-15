@@ -16,7 +16,7 @@ const Workout: FC = () => {
 	const exercise = useAppSelector(state => state.exercise.exercise);
 	const { time } = useAppSelector(state => state.workout);
 
-	const timeMs: number = Number(time.minutes) * 60000 + Number(time.seconds) * 1000;
+	const timeMs: number = Number(time.minutes) * 60000 + Number(time.seconds);
 
 	useEffect(() => {
 		dispatch(fetchExerciseById(params.id));
@@ -46,7 +46,7 @@ const Workout: FC = () => {
 							))} </p>
 							<br />
 							<span>Подходов - {exercise.times}</span>
-							<Timer setTime={timeMs} workoutId={params.id} />
+							<Timer secondsTime={timeMs} workoutId={params.id} />
 						</div>
 					</div>
 				</div>) : (<p style={{ fontSize: '20px' }}>Loading workout...</p>)}

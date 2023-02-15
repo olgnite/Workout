@@ -2,10 +2,10 @@ import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
 import Select, { MultiValue, OnChangeValue, SingleValue } from 'react-select';
-import { rangeTimeData } from '../../components/constData';
 import Error from "../../components/Error/Error";
 import Layout from '../../components/Layout/Layout';
 import { optionColor } from '../../components/optionColor';
+import TimeSelect from '../../components/TimeSelect/TimeSelect';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import bgImage from '../../images/new-workout-bg.jpg';
 import { addWorkout, fetchExercises } from "../../store/actionCreators";
@@ -51,34 +51,7 @@ const NewWorkout: FC = () => {
 					/>
 					<Error error={errors?.name} errorMessage={errors.name?.message} />
 					<div>
-						<select
-							className={styles.minutesSelect}
-							{...register('time.minutes')}
-						>
-							<option value={0}>Minutes</option>
-							{rangeTimeData.map((v: number, i: number) =>
-								<option
-									key={'__keyMinutes__' + i}
-									value={v}
-								>
-									{v}
-								</option>
-							)}
-						</select>
-						<select
-							className={styles.secondsSelect}
-							{...register('time.seconds')}
-						>
-							<option value={0}>Seconds</option>
-							{rangeTimeData.map((v: number, i: number) =>
-								<option
-									key={'__keySeconds__' + i}
-									value={v}
-								>
-									{v}
-								</option>
-							)}
-						</select>
+						<TimeSelect register={register} />
 					</div>
 					<button
 						type="submit"
