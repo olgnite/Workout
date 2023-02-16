@@ -26,8 +26,8 @@ const ListWorkouts: FC = () => {
 								<Link to={`workout/${i + 1}`}>
 									<span>{workout.name}</span>
 									<div className='time'>
-										<span style={{ marginRight: '10px' }}>Минут - {workout.time?.minutes}</span>
-										<span>Секунд - {workout.time?.seconds}</span>
+										<span style={{ marginRight: '10px' }}>Минут - {workout.minutes}</span>
+										<span>Секунд - {workout.seconds}</span>
 									</div>
 								</Link>
 							</div>)

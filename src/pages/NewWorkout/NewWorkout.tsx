@@ -12,6 +12,7 @@ import { addWorkout, fetchExercises } from "../../store/actionCreators";
 import { IOption, IWorkout } from '../../types/interfaces';
 import styles from './NewWorkout.module.scss';
 
+
 const NewWorkout: FC = () => {
 	const { register, handleSubmit, reset, formState: { errors } } = useForm<IWorkout>();
 	const exercises = useAppSelector(state => state.exercise.exercises);
@@ -28,7 +29,8 @@ const NewWorkout: FC = () => {
 		dispatch(addWorkout(accessToken, {
 			name: data.name,
 			exerciseNames: exercise as IOption[],
-			time: data.time
+			minutes: data.minutes,
+			seconds: data.seconds
 		}))
 		navigate('/workouts');
 		reset();
@@ -51,7 +53,8 @@ const NewWorkout: FC = () => {
 					/>
 					<Error error={errors?.name} errorMessage={errors.name?.message} />
 					<div>
-						<TimeSelect register={register} />
+						<TimeSelect register={register} controlName={'minutes'} labelSelect='Minutes' />
+						<TimeSelect register={register} controlName={'seconds'} labelSelect='Seconds' />
 					</div>
 					<button
 						type="submit"

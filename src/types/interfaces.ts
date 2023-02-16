@@ -7,7 +7,8 @@ export interface IUser {
 export interface IWorkout {
 	name: string;
 	exerciseNames: IOption[];
-	time?: ITime;
+	minutes?: string;
+	seconds?: string;
 }
 
 export interface IExercise {
@@ -20,9 +21,4 @@ export interface IExercise {
 export interface IOption {
 	value?: number;
 	label?: string;
-}
-
-export interface ITime {
-	minutes: number;
-	seconds: number;
 }

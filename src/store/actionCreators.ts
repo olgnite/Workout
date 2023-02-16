@@ -76,6 +76,7 @@ export const addWorkout = (token: string, data: IWorkout) => {
 				}
 			})
 			dispatch(workoutSlice.actions.workoutAddingSuccess(response.data));
+			console.log(response.data);
 		} catch (error) {
 			console.log((error as Error).message);
 		}

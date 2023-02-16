@@ -14,9 +14,9 @@ const Workout: FC = () => {
 	const { isAuth, accessToken, username } = useAppSelector(state => state.auth);
 	const { name, exerciseNames, isSuccess } = useAppSelector(state => state.workout);
 	const exercise = useAppSelector(state => state.exercise.exercise);
-	const { time } = useAppSelector(state => state.workout);
+	const { minutes, seconds } = useAppSelector(state => state.workout);
 
-	const timeMs: number = Number(time.minutes) * 60000 + Number(time.seconds);
+	const timeMs: number = Number(minutes) * 60000 + Number(seconds);
 
 	useEffect(() => {
 		dispatch(fetchExerciseById(params.id));
